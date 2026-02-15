@@ -1,0 +1,310 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Caveat:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Valentine Theme - Warm & Playful */
+    --background: 355 100% 97%;
+    --foreground: 350 80% 25%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 350 80% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 350 80% 25%;
+
+    --primary: 346 77% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 350 100% 95%;
+    --secondary-foreground: 350 80% 35%;
+
+    --muted: 350 30% 90%;
+    --muted-foreground: 350 40% 50%;
+
+    --accent: 350 100% 88%;
+    --accent-foreground: 350 80% 30%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 350 50% 85%;
+    --input: 350 50% 85%;
+    --ring: 346 77% 65%;
+
+    --radius: 1rem;
+
+    /* Custom Valentine Colors */
+    --rose-soft: 350 100% 96%;
+    --rose-light: 350 90% 85%;
+    --rose-medium: 346 77% 65%;
+    --rose-deep: 346 85% 50%;
+    --rose-dark: 346 85% 35%;
+    --coral: 16 100% 70%;
+    --cream: 40 60% 97%;
+    --gold: 45 100% 60%;
+
+    /* Chaos Mode Colors */
+    --chaos-pink: 320 100% 70%;
+    --chaos-purple: 280 80% 65%;
+
+    /* Gradients */
+    --gradient-valentine: linear-gradient(135deg, hsl(350 100% 96%) 0%, hsl(346 77% 92%) 50%, hsl(350 90% 88%) 100%);
+    --gradient-button-yes: linear-gradient(135deg, hsl(346 85% 60%) 0%, hsl(346 77% 55%) 100%);
+    --gradient-button-no: linear-gradient(135deg, hsl(350 30% 75%) 0%, hsl(350 25% 65%) 100%);
+    --gradient-celebration: linear-gradient(135deg, hsl(346 100% 95%) 0%, hsl(40 100% 95%) 50%, hsl(346 100% 92%) 100%);
+    --gradient-chaos: linear-gradient(135deg, hsl(320 100% 95%) 0%, hsl(280 80% 92%) 50%, hsl(346 100% 95%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(346 77% 65% / 0.25);
+    --shadow-button: 0 8px 30px -8px hsl(346 77% 50% / 0.4);
+    --shadow-float: 0 20px 50px -15px hsl(346 77% 50% / 0.3);
+
+    /* Typography */
+    --font-display: 'Caveat', cursive;
+    --font-body: 'Nunito', sans-serif;
+  }
+
+  .dark {
+    --background: 350 50% 8%;
+    --foreground: 350 20% 95%;
+    --card: 350 40% 12%;
+    --card-foreground: 350 20% 95%;
+    --primary: 346 77% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 350 30% 18%;
+    --secondary-foreground: 350 20% 90%;
+    --muted: 350 20% 20%;
+    --muted-foreground: 350 20% 70%;
+    --accent: 346 50% 25%;
+    --accent-foreground: 350 20% 95%;
+    --border: 350 30% 25%;
+    --input: 350 30% 25%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: var(--font-body);
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    overflow: hidden;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .bg-valentine-gradient {
+    background: var(--gradient-valentine);
+  }
+
+  .bg-celebration-gradient {
+    background: var(--gradient-celebration);
+  }
+
+  .bg-chaos-gradient {
+    background: var(--gradient-chaos);
+  }
+
+  .shadow-valentine {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-button {
+    box-shadow: var(--shadow-button);
+  }
+
+  .shadow-float {
+    box-shadow: var(--shadow-float);
+  }
+
+  /* Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes bounce-soft {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+
+  @keyframes pulse-heart {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes confetti-fall {
+    0% {
+      transform: translateY(-100%) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes heart-float {
+    0% {
+      transform: translateY(100vh) scale(0);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+      transform: translateY(90vh) scale(1);
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-20vh) scale(0.5);
+      opacity: 0;
+    }
+  }
+
+  @keyframes chaos-rotate {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(2deg); }
+    75% { transform: rotate(-2deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  @keyframes shrink-scared {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(0.85); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-bounce-soft {
+    animation: bounce-soft 2s ease-in-out infinite;
+  }
+
+  .animate-wiggle {
+    animation: wiggle 0.5s ease-in-out infinite;
+  }
+
+  .animate-shake {
+    animation: shake 0.3s ease-in-out infinite;
+  }
+
+  .animate-pulse-heart {
+    animation: pulse-heart 1s ease-in-out infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  .animate-chaos-rotate {
+    animation: chaos-rotate 0.5s ease-in-out infinite;
+  }
+
+  .animate-shrink-scared {
+    animation: shrink-scared 0.4s ease-in-out infinite;
+  }
+
+  /* Rose animations */
+  @keyframes rose-bloom {
+    0% { transform: scale(0.7) rotate(-3deg); opacity: 0; }
+    60% { transform: scale(1.05) rotate(3deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+
+  @keyframes petal-fall {
+    0% { transform: translateY(-10vh) rotate(0deg) scale(0.6); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg) scale(1); opacity: 0; }
+  }
+
+  @keyframes petal-sway {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(24px); }
+  }
+
+  .rose-core {
+    color: hsl(var(--rose-deep));
+    filter: drop-shadow(0 10px 30px rgba(0,0,0,0.25));
+    display: inline-block;
+    transform-origin: center;
+    animation: rose-bloom 900ms cubic-bezier(.2,.9,.3,1) both;
+  }
+
+  .rose-petal {
+    will-change: transform, opacity;
+    pointer-events: none;
+    mix-blend-mode: normal;
+    backface-visibility: hidden;
+  }
+
+  /* Respect user "reduce motion" preference */
+  @media (prefers-reduced-motion: reduce) {
+    .rose-petal {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: translateY(0) rotate(0) !important;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12));
+    }
+
+    .rose-core,
+    .animate-float,
+    .animate-bounce-soft,
+    .animate-pulse-heart,
+    .animate-fade-in-up,
+    .animate-wiggle,
+    .animate-shake,
+    .animate-chaos-rotate,
+    .animate-shrink-scared {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
+    }
+  }
+}
+
